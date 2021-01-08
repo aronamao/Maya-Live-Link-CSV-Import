@@ -1,4 +1,11 @@
 #pragma once
+
+#ifdef _MSC_VER 
+//not #if defined(_WIN32) || defined(_WIN64) because we have strncasecmp in mingw
+#define strncasecmp _strnicmp
+#define strcasecmp _stricmp
+#endif
+
 #include <maya/MStatus.h>
 #include <maya/MObject.h>
 #include <maya/MFnPlugin.h>
