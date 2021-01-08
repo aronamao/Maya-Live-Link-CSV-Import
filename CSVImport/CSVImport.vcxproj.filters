@@ -23,8 +23,5 @@
     <ClInclude Include="Source\csvImport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\rapidcsv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
