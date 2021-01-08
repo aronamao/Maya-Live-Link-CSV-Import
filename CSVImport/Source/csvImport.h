@@ -36,7 +36,6 @@ private:
 	int s_offset = 0;
 	int get_frame(std::vector<std::string>::iterator time);
 	std::vector<std::string> find_frame(std::vector<std::string>::iterator iter);
-	std::string rotations[3] = { "rx", "ry", "rz" };
 	bool is_bs(std::string input);
 	std::string convertEuler(std::string input, const char** index);
 public:
