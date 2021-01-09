@@ -1,9 +1,5 @@
 # Live Link Face CSV Importer for Maya
 
-Plug-in for importing .csv mocap data recorded with the Live Link Face App.
-
-
-
 ### Instructions
 
 Simply move the CSVImporter.mll to your plug-ins folder. The path may vary depending on the environment variables setup on your machine. The default however is "C:/Users/Name/Documents/maya/Version/plug-ins", the most common alternative path would be "C:\Program Files\Autodesk\Maya2020\bin\plug-ins". If neither work check your environment variables for MAYA_PLUG_IN_PATH and adjust your path accordingly.
