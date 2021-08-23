@@ -8,4 +8,4 @@ Activate the plug-in in your plug-in manager, select the target mesh and import 
 
 Latest compiled release available for Maya 2018-2020 [here](https://github.com/ArhasGH/Live-Link-Face-CSV-to-Maya/releases/latest)
 
-### Blendshape that contain "Yaw", "Pitch" or "Roll" will not be imported as they are detected as joints, rename if possible. If not create an issue and I will address this
+### Blendshapes that contain "Yaw", "Pitch" or "Roll" will not be imported as they are detected as joints, rename if possible. If not create an issue and I will address this
