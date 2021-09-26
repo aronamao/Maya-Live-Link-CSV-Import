@@ -37,12 +37,6 @@ std::vector<std::string> csvImport::find_frame(std::vector<std::string>::iterato
 	return out;
 }
 
-// check if the current object is supposed to be a joint
-bool csvImport::is_bs(std::string input) {
-	if (std::string::npos != input.find("Yaw") || std::string::npos != input.find("Pitch") || std::string::npos != input.find("Roll")) { return false; }
-	else { return true; }
-}
-
 // incredibly scuffed way of getting the correct rotation from the name, there's probably a better way than to use ** but it works
 std::string csvImport::convertEuler(std::string input, const char** index) {
 	std::string temp;
@@ -122,15 +116,16 @@ MStatus csvImport::reader(const MFileObject& file, const MString& optionsString,
 	}
 	MObject curve;
 
-	// attach a BlendshapeMFn to the blendshape
-	MFnBlendShapeDeformer bfn(dag);
+	// attach a MFnDependencyNode to the blendshape
+	MFnDependencyNode dfn(dag);
 	// find the weight attribute
-	MPlug plug = bfn.findPlug("weight", false);
+	MPlug plug = dfn.findPlug("weight", false);
 	// unfortunately attributes have to be accessed via indices so we need to find the correct index via the alias. We just store those in a String Array
-	bfn.getAliasList(alias);
+	dfn.getAliasList(alias);
+	MObject dummy;
 	// iterate through the blendshapes / left to right
 	for (auto t = target.begin() + 1; t != target.end(); t++) {
-		if (is_bs(t->data())) {
+		if (dfn.findAlias(t->data(), dummy)) {
 			// iterate through the alias, 2 steps at a time as the next value corresponds to the current target
 			for (unsigned int i = 0; i < alias.length(); i+=2) {
 				// check if alias is the wanted one
@@ -172,7 +167,11 @@ MStatus csvImport::reader(const MFileObject& file, const MString& optionsString,
 		// do joint related things
 		else {
 			const char* rotation = "";
-			sel.add(convertEuler(t->data(), &rotation).c_str());
+			MStatus status = sel.add(convertEuler(t->data(), &rotation).c_str());
+			if (status != MStatus::kSuccess) {
+				MGlobal::displayWarning(t->data() + MString(" not found, skipping"));
+				continue;
+			}
 			MObject joint;
 			sel.getDependNode(0, joint);
 			DFn.setObject(joint);

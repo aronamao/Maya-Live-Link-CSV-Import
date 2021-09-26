@@ -43,7 +43,6 @@ private:
 	int s_offset = 0;
 	int get_frame(std::vector<std::string>::iterator time);
 	std::vector<std::string> find_frame(std::vector<std::string>::iterator iter);
-	bool is_bs(std::string input);
 	std::string convertEuler(std::string input, const char** index);
 public:
 	csvImport();

@@ -41,13 +41,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -71,11 +71,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetExt>.mll</TargetExt>
-    <IncludePath>E:\maya_devkits\2020\devkitBase\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\Include;E:\maya_devkits\2022\devkitBase\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetExt>.mll</TargetExt>
-    <IncludePath>$(ProjectDir)\Include;E:\maya_devkits\2020\devkitBase\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\Include;E:\maya_devkits\2022\devkitBase\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,15 +94,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\maya_devkits\2020\devkitBase\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\maya_devkits\2022\devkitBase\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>OpenMaya.lib;OpenMayaRender.lib;OpenMayaAnim.lib;OpenMayaFX.lib;OpenMayaUI.lib;Foundation.lib;Image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"C:\Program Files\Autodesk\Maya2020\lib";E:\maya_devkits\2020\devkitBase\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>"C:\Program Files\Autodesk\Maya2022\lib";E:\maya_devkits\2022\devkitBase\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>move "$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).mll" C:\Users\aronb\Documents\maya\2020\plug-ins</Command>
+      <Command>move "$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).mll" C:\Users\aronb\Documents\maya\2022\plug-ins</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,17 +128,17 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\maya_devkits\2020\devkitBase\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\maya_devkits\2022\devkitBase\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>OpenMaya.lib;OpenMayaRender.lib;OpenMayaAnim.lib;OpenMayaFX.lib;OpenMayaUI.lib;Foundation.lib;Image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>"C:\Program Files\Autodesk\Maya2020\lib";E:\maya_devkits\2020\devkitBase\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>"C:\Program Files\Autodesk\Maya2022\lib";E:\maya_devkits\2022\devkitBase\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>move "$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).mll" C:\Users\aronb\Documents\maya\2020\plug-ins</Command>
+      <Command>move "$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).mll" C:\Users\aronb\Documents\maya\2022\plug-ins</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
